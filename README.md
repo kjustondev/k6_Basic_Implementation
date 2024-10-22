@@ -19,7 +19,28 @@ This is a personal project for guiding any future developers on doing basic Graf
 
 ### Types of testing methodologies
 
-TEXT 2
+![Types of Load Testing Overview](/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Images/loadTestTypeOverview.png)
+
+1. Smoke Test:
+   - It verify the system functions with minimal load, and they are used to gather baseline performance values.
+
+2. Average-Load Test:
+   - It assess how the system performs under a typical load for your system or application. Typical load might be a regular day in production or an average timeframe in your daily traffic.
+
+3. Stress Test:
+    - It discovers how the system functions with the load at peak traffic.
+
+4. Spike Test:
+    - It verifies whether the system survives and performs under sudden and massive rushes of utilization.
+
+5. Breakpoint Test:
+    - It tests to discover your system’s limits. Usually comprised of a breakpoint test ramps to unrealistically high numbers.
+
+6. Soak Test: 
+    - It is a variation of the average-load test but in a longer sustained duration. 
+        - In a soak test, the peak load is usually an average load, but the peak load duration extends several hours or even days.
+
+
 
 # Steps to Implementation
 
