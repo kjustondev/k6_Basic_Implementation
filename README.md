@@ -12,8 +12,7 @@ This is a personal project for guiding any future developers on doing basic Graf
 - Is a type of software testing that determines the performance of a system, software product, or software application under real life based load conditions. 
 
 
->[!NOTE] 
->Wouldn't Dashboard Monitor System does that already?
+>[!NOTE]: Wouldn't Dashboard Monitor System does that already?
 > - YES! It does! Tools like Grafana, Kibana, OpenLens and other tools would do the job. 
 > - However we want to discover potential problems occur before we even deploy software into lower levels enviornment and so that when issues occur they are visible and we have already anticipated when spoted.  
 
