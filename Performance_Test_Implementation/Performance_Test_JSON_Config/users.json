@@ -1,6 +1,6 @@
 {
-    "users": [
-      { "username": "lorem", "surname": "ipsum" },
-      { "username": "dolorem", "surname": "ipsum" }
-    ]
+  "users": [
+    { "username": "user1", "surname": "Surname1" },
+    { "username": "user2", "surname": "Surname2" }
+  ]
 }
