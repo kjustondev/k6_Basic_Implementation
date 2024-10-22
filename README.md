@@ -13,10 +13,8 @@ TEXT 2
 
 # Steps to Implementation
 
-Link to the sample section: [Link Text](#sample-section).
+# Links/References
 
-Link to the helpful section: [Link Text](#thisll--be-a-helpful-section-about-the-greek-letter-Θ).
+Official Grafana K6 Documentation: [Read Here](#https://grafana.com/docs/k6/latest/examples/get-started-with-k6/).
 
-Link to the first non-unique section: [Link Text](#this-heading-is-not-unique-in-the-file).
-
-Link to the second non-unique section: [Link Text](#this-heading-is-not-unique-in-the-file-1).
+Reading in Difference between Performance Testing And Load Testing: [Read Here](#https://www.geeksforgeeks.org/difference-between-performance-testing-and-load-testing/).
