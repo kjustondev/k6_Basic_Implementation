@@ -5,7 +5,6 @@ import pandas as pd
 # Load the results from the JSON file
 try:
     with open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Graphing/Visualization_Results_JSON/results.json') as f:
-        # Read the file line by line and parse each JSON object
         data = [json.loads(line) for line in f]
 except FileNotFoundError:
     print("The results.json file was not found. Please check the path.")
@@ -21,10 +20,10 @@ failed_counts = []
 
 # Loop through the data to extract successful and failed calls
 for entry in data:
-    if entry['metric'] == 'successful_calls':
+    if entry['metric'] == 'successful_requests':
         timestamps.append(entry['data']['time'])
         successful_counts.append(entry['data']['value'])
-    elif entry['metric'] == 'failed_calls':
+    elif entry['metric'] == 'failed_requests':
         timestamps.append(entry['data']['time'])
         failed_counts.append(entry['data']['value'])
 
@@ -36,32 +35,15 @@ total_failed = sum(failed_counts)
 print(f"Total Successful Calls: {total_successful}")
 print(f"Total Failed Calls: {total_failed}")
 
-# Create a DataFrame for easier handling
-df = pd.DataFrame({
-    'Time': timestamps,
-    'Successful Calls': successful_counts,
-    'Failed Calls': failed_counts
-})
+# Prepare data for plotting
+categories = ['Successful Requests', 'Failed Requests']
+values = [total_successful, total_failed]
 
-# Convert the 'Time' column to datetime
-df['Time'] = pd.to_datetime(df['Time'])
-
-# Set the Time as the index for easier plotting
-df.set_index('Time', inplace=True)
-
-# Plotting the results
-plt.figure(figsize=(12, 6))
-bar_width = 0.35
-x = range(len(df))
-
-# Create bar plots for successful and failed calls
-plt.bar(x, df['Successful Calls'], width=bar_width, color='blue', label='Successful Calls')
-plt.bar([p + bar_width for p in x], df['Failed Calls'], width=bar_width, color='red', label='Failed Calls')
-
-plt.xlabel('Time')
+# Create a bar plot
+plt.figure(figsize=(8, 5))
+plt.bar(categories, values, color=['blue', 'red'])
 plt.ylabel('Count')
-plt.title('Count of Successful vs Failed Calls Over Time')
-plt.xticks([p + bar_width / 2 for p in x], df.index.strftime('%Y-%m-%d %H:%M:%S'), rotation=45)
-plt.legend()
+plt.title('Total Successful vs Failed Requests')
+plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()

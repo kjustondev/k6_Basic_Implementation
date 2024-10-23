@@ -1,0 +1,3 @@
+{"type": "Metric", "data": {"name": "vus", "type": "gauge", "contains": "default", "thresholds": [], "submetrics": null}, "metric": "vus"}
+{"type": "Metric", "data": {"name": "vus_max", "type": "gauge", "contains": "default", "thresholds": [], "submetrics": null}, "metric": "vus_max"}
+{"metric": "failed_requests", "type": "Point", "data": {"time": "2024-10-23T15:38:59.464801", "value": 10, "tags": {}}}
