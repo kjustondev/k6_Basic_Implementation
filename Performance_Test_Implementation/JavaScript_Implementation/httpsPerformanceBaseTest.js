@@ -1,25 +1,14 @@
-import { check, sleep, Counter } from 'k6';
-import http from 'k6/http';
+import http from 'k6/http'; // Import the http module
 import { SharedArray } from 'k6/data';
-import { Rate } from 'k6/metrics';
+import { check, sleep } from 'k6'; // Import check and sleep if not already imported
 
-// Load the JSON file using the absolute path
-const userData = open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Implementation/Performance_Test_JSON_Config/users.json');
-console.log('User Data:', userData);  // Log the raw data read from the file
+// Load the JSON file in the global scope
 const users = new SharedArray('users', function () {
+    const userData = open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Implementation/Performance_Test_JSON_Config/users.json');
     const parsedData = JSON.parse(userData);
-    console.log('Parsed Data:', parsedData); // Log the parsed data
-    return parsedData.users;
+    console.log('Parsed Data:', parsedData); // Log parsed data
+    return parsedData.users; // Return the users array
 });
-
-console.log('Users:', users); // Log the users array to ensure it’s populated
-
-
-
-// Create Counters for total counts
-const totalSuccessfulRequests = new Counter('successful_requests');
-const totalFailedRequests = new Counter('failed_requests');
-
 
 export const options = {
     stages: [
@@ -32,39 +21,43 @@ export const options = {
     },
 };
 
+// Check if users array is populated
+if (!users || users.length === 0) {
+    console.error('No users found in the users array!');
+}
 
+// The default function runs the actual test
 export default function () {
+    const user = users[Math.floor(Math.random() * users.length)];
+    console.log('Selected User:', user); // Log selected user
 
-  const user = users[Math.floor(Math.random() * users.length)];
-  console.log('Selected User:', user); // Log selected user
+    const payload = JSON.stringify({
+        name: user.username,
+        surname: user.surname,
+    });
+    const headers = { 'Content-Type': 'application/json' };
 
+    const res = http.post('https://httpbin.test.k6.io/post', payload, {
+        headers,
+    });
 
-  const payload = JSON.stringify({
-    name: user.username,
-    surname: user.surname,
-  });
-  const headers = { 'Content-Type': 'application/json' };
-  
-  const res = http.post('https://httpbin.test.k6.io/post', payload, { headers });
+    console.log('Response Status:', res.status);
+    console.log('Response Body:', res.body);
 
-  const isValidResponse = check(res, {
-    'Post status is 200': (r) => r.status === 200,
-    'Post Content-Type header': (r) => r.headers['Content-Type'] === 'application/json',
-    'Post response name': (r) => r.status === 200 && r.json().json.name === user.username,
-  });
+    // Check response validity
+    const isValidResponse = check(res, {
+        'Post status is 200': (r) => r.status === 200,
+        'Post Content-Type header': (r) => r.headers['Content-Type'] === 'application/json',
+        'Post response name': (r) => r.json().json.name === user.username,
+    });
 
-  // Track valid and failed responses
-  if (isValidResponse) {
-    totalSuccessfulRequests.add(1); // Count successful requests
-  } else {
-    totalFailedRequests.add(1); // Count failed requests
-  }
+    if (!isValidResponse) {
+        console.error('Request failed validation:', {
+            status: res.status,
+            body: res.body,
+        });
+    }
 
-  if (res.status === 200) {
-    const delPayload = JSON.stringify({ name: res.json().json.name });
-    http.patch('https://httpbin.test.k6.io/patch', delPayload, { headers });
-  }
-
-  // Optional sleep to pace requests
-  sleep(1);
+    // Optional sleep to pace requests
+    sleep(1);
 }
