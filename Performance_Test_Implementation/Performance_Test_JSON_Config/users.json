@@ -1,6 +1,7 @@
 {
   "users": [
-    { "username": "user1", "surname": "Surname1" },
-    { "username": "user2", "surname": "Surname2" }
+    { "username": "validUser1", "password": "validPassword1" },
+    { "username": "validUser2", "password": "validPassword2" },
+    { "username": "invalidUser", "password": "invalidPassword" }
   ]
 }

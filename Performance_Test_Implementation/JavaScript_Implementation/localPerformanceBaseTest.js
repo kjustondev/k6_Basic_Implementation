@@ -1,63 +1,64 @@
-import { check } from 'k6';
-import { sleep } from 'k6';
+import { check, sleep, Counter } from 'k6';
 import http from 'k6/http';
 import { SharedArray } from 'k6/data';
-import ws from 'k6/ws';
 
-const users = new SharedArray('users.json', function () {
-    return JSON.parse(open('./users.json')).users;
+// Load the users from the JSON file with the correct path
+const users = new SharedArray('users', function () {
+  return JSON.parse(open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Implementation/Performance_Test_JSON_Config/users.json')).users; // Ensure the path is correct
 });
 
+// Counters for valid and failed responses
+let validResponses = new Counter('valid_responses');
+let failedResponses = new Counter('failed_responses');
+
 export const options = {
-    stages: [
-        { duration: '1m', target: 20 },
-        { duration: '3m', target: 20 },
-        { duration: '1m', target: 0 },
-    ]
+  vus: 10, // Number of virtual users
+  duration: '30s', // Duration of the test
 };
 
 export default function () {
-    const user = users[Math.floor(Math.random() * users.length)];
-    const payload = JSON.stringify({
-        name: user.username,
-        surname: user.surname,
-    });
-    const headers = { 'Content-Type': 'application/json' };
-    
-    // HTTP POST request to the local server
-    const res = http.post('http://localhost:8080/api/users', payload, { headers });
+  // Select a random user for each iteration
+  const user = users[Math.floor(Math.random() * users.length)];
+  const payload = JSON.stringify({
+    username: user.username,
+    password: user.password,
+  });
+  const headers = { 'Content-Type': 'application/json' };
 
-    check(res, {
-        'Post status is 200': (r) => r.status === 200,
-        'Post Content-Type header': (r) => r.headers['Content-Type'] === 'application/json',
-        'Post response name': (r) => r.status === 200 && r.json().json.name === user.username,
-    });
+  const res = http.post('http://localhost:3000/users', payload, { headers });
 
-    if (res.status === 200) {
-        // Prepare payload for PATCH request
-        const delPayload = JSON.stringify({ name: res.json().json.name });
-        http.patch('http://localhost:8080/api/users/update', delPayload, { headers });
-    }
+  // Log the response status for debugging
+  console.log(`Response status: ${res.status}`);
 
-    // WebSocket connection to localhost
-    const host = ws.connect('ws://localhost:8080/host', {}, function (socket) {
-        socket.on('open', () => {
-            console.log('WebSocket connection opened');
-            // Send a message to the server
-            socket.send(JSON.stringify({ message: 'K6 Initiated' }));
+  // Ensure the response is valid before checking it
+  const isValidResponse = check(res, {
+    'is status 200': (r) => r.status === 200,
+    'is response valid': (r) => {
+      try {
+        const json = r.json();
+        return json && json.token !== undefined; // Adjust based on expected response
+      } catch (error) {
+        console.error('Error parsing JSON response:', error);
+        return false; // Invalid response if JSON parsing fails
+      }
+    },
+  });
 
-            // Close the WebSocket connection after sending the message
-            socket.close();
-        });
+  if (isValidResponse) {
+    validResponses.add(1);
+  } else {
+    failedResponses.add(1);
+    console.error(`Failed response: ${res.body}`); // Log the entire response body
+  }
 
-        socket.on('close', () => {
-            console.log('WebSocket connection closed');
-        });
+  sleep(1); // Pause for a second between requests
+}
 
-        socket.on('error', (e) => {
-            console.error('WebSocket error:', e);
-        });
-    });
-
-    sleep(1); // Optional sleep after operations
+export function handleSummary(data) {
+  return {
+    'stdout': JSON.stringify({
+      valid_responses: validResponses.count,
+      failed_responses: failedResponses.count,
+    }, null, 2),
+  };
 }
