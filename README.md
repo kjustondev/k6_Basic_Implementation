@@ -44,7 +44,7 @@ This is a personal project for guiding any future developers on doing basic Graf
 # K6 Structure Implementation:
 There will be 2 seperate parts of the implementation, please refer to these documentations below.
 
-- Part II - (Optional): Localhost Setup for endpoint testing: [Documentation for local environment setup](k6_Basic_Implementation/local-server/README.md)
+- Part II - (Optional): Localhost Setup for endpoint testing: [Documentation for local environment setup](local-server/README.md)
 
 ## Learn More:
 
