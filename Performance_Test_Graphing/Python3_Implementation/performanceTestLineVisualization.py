@@ -10,7 +10,7 @@ data = {
 }
 
 try:
-    with open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Graphing/Visualization_Results_JSON/results.json') as f:
+    with open('../Visualization_Results_JSON/results.json') as f:
         for line in f:
             entry = json.loads(line)
             metric = entry['metric']

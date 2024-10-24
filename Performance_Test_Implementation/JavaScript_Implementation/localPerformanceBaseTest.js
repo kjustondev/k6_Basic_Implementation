@@ -4,7 +4,7 @@ import { check, sleep } from 'k6'; // Import check and sleep
 
 // Load the JSON file in the global scope
 const users = new SharedArray('users', function () {
-    const userData = open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Implementation/Performance_Test_JSON_Config/users.json');
+    const userData = open('../Performance_Test_JSON_Config/users.json');
     const parsedData = JSON.parse(userData);
     console.log('Parsed Data:', parsedData); // Log parsed data
     return parsedData.users; // Return the users array

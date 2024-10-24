@@ -40,7 +40,7 @@ results.append(create_metric_entry("successful_requests", successful_requests))
 results.append(create_metric_entry("failed_requests", failed_requests))
 
 # Write results to a JSON file in the specified directory
-with open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Graphing/Visualization_Results_JSON/results.json', 'w') as f:
+with open('../Visualization_Results_JSON/results.json', 'w') as f:
     for entry in results:
         f.write(json.dumps(entry) + '\n')
 

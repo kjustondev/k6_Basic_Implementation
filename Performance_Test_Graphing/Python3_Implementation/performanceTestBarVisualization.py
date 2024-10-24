@@ -4,7 +4,7 @@ import pandas as pd
 
 # Load the results from the JSON file
 try:
-    with open('/Users/juston/Desktop/Personal Cover Letter Portfollio/k6_Basic_Implementation/Performance_Test_Graphing/Visualization_Results_JSON/results.json') as f:
+    with open('../Visualization_Results_JSON/results.json') as f:
         data = [json.loads(line) for line in f]
 except FileNotFoundError:
     print("The results.json file was not found. Please check the path.")
