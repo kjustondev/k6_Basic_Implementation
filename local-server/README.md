@@ -10,8 +10,7 @@ Before any Performance Testing needed to be done please setup an local environme
 ## Purpose:
  - To establish the basics on how to make local testing.
 
-
-### Preliminary steps:
+### Localhost Setup Steps:
 
 1. Create/Ensure there is a delicated directory for local server setup
 > [!IMPORTANT]  
