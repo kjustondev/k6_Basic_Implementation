@@ -42,10 +42,10 @@ This is a personal project for guiding any future developers on doing basic Graf
 
 # K6 Structure Implementation:
 
-# Links/References:
+## Learn More:
 
-Official Grafana K6 Documentation: [Read Here](https://grafana.com/docs/k6/latest/examples/get-started-with-k6/).
+You can learn more in the: [Official Grafana K6 Documentation](https://grafana.com/docs/k6/latest/examples/get-started-with-k6/).
 
-Reading in Difference between Performance Testing And Load Testing: [Read Here](https://www.geeksforgeeks.org/difference-between-performance-testing-and-load-testing/).
+To understand the difference between Performance Testing and Load Testing: [Performance Testing vs. Load Testing](https://www.geeksforgeeks.org/difference-between-performance-testing-and-load-testing/).
 
-The 6 Different Types of Load Testing: [Read Here](https://grafana.com/load-testing/types-of-load-testing/)
+More on Load Testing: [The 6 Types of Load Testing](https://grafana.com/load-testing/types-of-load-testing/)
