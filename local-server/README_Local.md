@@ -14,6 +14,8 @@ Before any Performance Testing needed to be done please setup an local environme
 ### Preliminary steps:
 
 1. Create/Ensure there is a delicated directory for local server setup
+    > [!NOTE]  
+    > If the virtual environment is not created here is the command: `python3 -m venv myenv`
 
 2. In your terminal activate the virtual environment:
 - On macOS and Linux: `source myenv/bin/activate` 
@@ -22,17 +24,22 @@ Before any Performance Testing needed to be done please setup an local environme
 
 - On Windows (PowerShell): `.\myenv\Scripts\Activate.ps1`
 
+3. Once the server is activated make sure these libary are installed to your personal environment:
+    >`pip install pandas`
+    <br> 
+    >`pip install matplotlib`
+    </br>
 
-3. Install the Require Packages from Terminal:
+4. Install the Require Packages from Terminal:
     >`brew install requests`
 
-4. Initialize a new Node.js project:
+5. Initialize a new Node.js project:
     >`npm init -y`
 
-5. Install Express:
+6. Install Express:
     >`npm install express`
 
-6. Start Server:
+7. Start Server:
     >`node server.js`
 
-7. To end the Server type <kbd>Ctrl</kbd> + <kbd>c</kbd> to end the session
+8. To end the Server type <kbd>Ctrl</kbd> + <kbd>c</kbd> to end the session
