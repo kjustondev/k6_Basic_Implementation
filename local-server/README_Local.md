@@ -25,8 +25,8 @@ Before any Performance Testing needed to be done please setup an local environme
 - On Windows (PowerShell): `.\myenv\Scripts\Activate.ps1`
 
 3. Once the server is activated make sure these libary are installed to your personal environment:
-    - >`pip install pandas` 
-    - >`pip install matplotlib`
+- >`pip install pandas` 
+- >`pip install matplotlib`
 
 4. Install the Require Packages from Terminal:
     >`brew install requests`
