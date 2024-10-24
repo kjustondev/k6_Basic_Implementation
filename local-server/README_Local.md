@@ -27,8 +27,8 @@ Before any Performance Testing needed to be done please setup an local environme
 3. Once the server is activated make sure these libary are installed to your personal environment:
     >`pip install pandas`
     <br> 
+    >`pip install pandas`
     >`pip install matplotlib`
-    </br>
 
 4. Install the Require Packages from Terminal:
     >`brew install requests`
