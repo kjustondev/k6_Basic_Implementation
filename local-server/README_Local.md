@@ -16,6 +16,8 @@ Before any Performance Testing needed to be done please setup an local environme
 1. Create/Ensure there is a delicated directory for local server setup
     > [!NOTE]  
     > If the virtual environment is not created here is the command: `python3 -m venv myenv`
+> [!NOTE]  
+> The following instructions are meant to serve as an example to setup a basic local server environment and it does not apply to anything related to K6 Performance Testing implementation. The following content is strictly used as a reference on serving local server testing in this particular sample.
 
 2. In your terminal activate the virtual environment:
 - On macOS and Linux: `source myenv/bin/activate` 
@@ -26,8 +28,7 @@ Before any Performance Testing needed to be done please setup an local environme
 
 3. Once the server is activated make sure these libary are installed to your personal environment:
     - >`pip install pandas` 
-    - >`pip install pandas`
-    >`pip install matplotlib`
+    - >`pip install matplotlib`
 
 4. Install the Require Packages from Terminal:
     >`brew install requests`
