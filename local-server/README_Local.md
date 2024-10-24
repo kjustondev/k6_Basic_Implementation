@@ -14,10 +14,8 @@ Before any Performance Testing needed to be done please setup an local environme
 ### Preliminary steps:
 
 1. Create/Ensure there is a delicated directory for local server setup
-    > [!NOTE]  
-    > If the virtual environment is not created here is the command: `python3 -m venv myenv`
-> [!NOTE]  
-> The following instructions are meant to serve as an example to setup a basic local server environment and it does not apply to anything related to K6 Performance Testing implementation. The following content is strictly used as a reference on serving local server testing in this particular sample.
+> [!IMPORTANT]  
+> If the virtual environment is not created here is the command: `python3 -m venv myenv`
 
 2. In your terminal activate the virtual environment:
 - On macOS and Linux: `source myenv/bin/activate` 
