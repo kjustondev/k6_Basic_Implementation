@@ -1,5 +1,5 @@
-# Software Application  [<kbd>Next Page</kbd>](Performance_Test_Implementation/README.md)
-This is a personal project for guiding any future developers on doing basic Grafana K6 implementation for any projects to be capable to execute performance testing and load testing in their applications.
+# Strengthen Software & More Than Testing[<kbd>Next Page</kbd>](Performance_Test_Implementation/README.md)
+This is a personal project for guiding any future developers on desiring to limit test and improve their software reliance by leveraging Grafana K6 implementation for any projects to be capable to execute performance/load testing in their applications.
 
 ## What is Performance Testing?
 
