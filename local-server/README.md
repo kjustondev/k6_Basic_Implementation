@@ -7,8 +7,8 @@ It is good practice to have a local environment setup especially for performance
 > [!IMPORTANT]  
 > Developers are advised to seek other pages online for more applicable solutions to their in development applications.
 
-## Purpose:
- To establish the basics on how to make local testing.
+## Goal:
+ To establish the basics on how to make local testing for any future feature implementations.
 
 ### Localhost Setup Steps:
 

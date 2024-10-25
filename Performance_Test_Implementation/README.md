@@ -3,8 +3,11 @@ For Implementing Performance Test into any application, we will need to use Graf
 
 To better understand the capabilities of Grafana K6 feel free to check out the Learn More section of this documentation. 
 
-### K6 Implementation Structure (Concept):
+## Goal:
+ To establish the basic understanding on using Grafana K6 to implement load testing to any projects.
 
+### K6 Implementation Structure (System Design):
+ ![Types of Load Testing Overview](/Images/Flowcharts.png)
 
 ### K6 Implementation Steps:
 
