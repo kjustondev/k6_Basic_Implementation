@@ -41,14 +41,13 @@ This is a personal project for guiding any future developers on doing basic Graf
 
 
 
-# K6 Structure Implementation:
+# Implementation Overview:
 There will be 2 seperate parts of the implementation, please refer to these documentations below.
+- Part I - (Mandatory): How to setup K6 and full JavaScript implementation: [Documentation for K6 Implementation](Performance_Test_Implementation/README.md)
 
 - Part II - (Optional): Localhost Setup for endpoint testing: [Documentation for local environment setup](local-server/README.md)
 
 ## Learn More:
-
-You can learn more in the: [Official Grafana K6 Documentation](https://grafana.com/docs/k6/latest/examples/get-started-with-k6/).
 
 To understand the difference between Performance Testing and Load Testing: [Performance Testing vs. Load Testing](https://www.geeksforgeeks.org/difference-between-performance-testing-and-load-testing/).
 
