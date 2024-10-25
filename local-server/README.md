@@ -1,5 +1,5 @@
-# Localhost Testing
-Before any Performance Testing needed to be done please setup an local environment to simulate any endpoint calls.
+# Localhost Testing [<kbd>Previous Page</kbd>](Performance_Test_Implementation/README.md)
+It is good practice to have a local environment setup especially for performance testing since it is simulating making multiple vitual users call the given endpoint calls.
 
 > [!NOTE]  
 > The following instructions are meant to serve as an example to setup a basic local server environment and it does not apply to anything related to K6 Performance Testing implementation. The following content is strictly used as a reference on serving local server testing in this particular sample.
