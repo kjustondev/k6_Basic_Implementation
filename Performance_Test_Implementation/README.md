@@ -1,4 +1,4 @@
-# K6 Performance Test JavaScript Implementation [<kbd>Next Page</kbd>](../local-server/README.md) [<kbd>Previous Page</kbd>](../README.md)
+# K6 Performance Test JavaScript Implementation <br>[<kbd>Next Page</kbd>](../local-server/README.md) [<kbd>Previous Page</kbd>](../README.md)
 For Implementing Performance Test into any application, we will need to use Grafana K6. It is an open source load testing tool designed for efficient performance testing in any applications. Test scripts can be written in Kotlin or JavaScript, but for the following example of implementation the script will be writen in Javascript. 
 
 To better understand the capabilities of Grafana K6 feel free to check out the Learn More section of this documentation. 
