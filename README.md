@@ -1,4 +1,4 @@
-# K6 Basic Implementation
+# K6 Basic Implementation [<kbd>Next Page</kbd>](local-server/README.md)
 This is a personal project for guiding any future developers on doing basic Grafana K6 implementation for any projects to be capable to execute performance testing and load testing in their applications.
 
 ## What is Performance Testing?
