@@ -30,41 +30,40 @@ To better understand the capabilities of Grafana K6 feel free to check out the L
     <p><code>mkdir Implementation_JS</code><br><code>mkdir Implementation_JSON</code></p>
 
 5. Navigate to the `Implementation_JS` and create a .js file. 
-    > [!IMPORTANT] 
-    > <br>
-    >This will be the directory for hosting K6 scripts:
+  > [!IMPORTANT]  
+  > This will be the directory for hosting K6 scripts:
 
-    ```javascript
-    // import necessary module
-        import http from 'k6/http'; // Import the http module
-        import { SharedArray } from 'k6/data';
+   ```javascript
+   // import necessary module
+       import http from 'k6/http'; // Import the http module
+       import { SharedArray } from 'k6/data';
 
-    // This method configures the amount of virtual users calling the services in set durations
-        export const options = {
-            stages: [
-                { duration: '1m', target: 100 },
-                { duration: '2m', target: 200 },
-            ],
-        };
+   // This method configures the amount of virtual users calling the services in set durations
+       export const options = {
+           stages: [
+               { duration: '1m', target: 100 },
+               { duration: '2m', target: 200 },
+           ],
+       };
 
-        export default function () {
-    // define URL and payload
-        const url = '<<YOUR ENDPOINT URL FOR TESTING>>';
-        const payload = JSON.stringify({
-            username: 'test_case',
-            password: '1234',
-        });
+       export default function () {
+   // define URL and payload
+       const url = '<<YOUR ENDPOINT URL FOR TESTING>>';
+       const payload = JSON.stringify({
+           username: 'test_case',
+           password: '1234',
+       });
 
-        const params = {
-            headers: {
-            'Content-Type': 'application/json',
-            },
-        };
+       const params = {
+           headers: {
+           'Content-Type': 'application/json',
+           },
+       };
 
-    // send a post request and save response as a variable
-        const res = http.post(url, payload, params);
-        }
-    ```
+   // send a post request and save response as a variable
+       const res = http.post(url, payload, params);
+       }
+   ```
     The above JavaScript is a sample of a basic K6 script structure, for a more advance implementation checkout [this file](JavaScript_Implementation/localPerformanceBaseTest.js).
 
 6. The `Implementation_JSON` directory is for hosting any necessary JSON context file setup for the K6 JavaScript.
