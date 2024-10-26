@@ -48,23 +48,23 @@ To better understand the capabilities of Grafana K6 feel free to check out the L
 
        // This is to setup the endpoint where the K6 run scripts hits
        export default function () {
-       const url = '<<YOUR ENDPOINT URL FOR TESTING>>'
-;
-       // JSON payload for the endpoint that is authenticating
-       const payload = JSON.stringify({
-           username: 'test_case',
-           password: '1234',
-       });
-
-       // Parameters file content type declaration
-       const params = {
-           headers: {
-           'Content-Type': 'application/json',
-           },
-       };
-
-       // When K6 run command executes it will make a http post request to the given endpoint url
-       const res = http.post(url, payload, params);
+         const url = '<<YOUR ENDPOINT URL FOR TESTING>>'
+  ;
+         // JSON payload for the endpoint that is authenticating
+         const payload = JSON.stringify({
+             username: 'test_case',
+             password: '1234',
+         });
+  
+         // Parameters file content type declaration
+         const params = {
+             headers: {
+             'Content-Type': 'application/json',
+             },
+         };
+  
+         // When K6 run command executes it will make a http post request to the given endpoint url
+         const res = http.post(url, payload, params);
        }
    ```
    The above JavaScript is a sample of a basic K6 script structure, for a more advance implementation checkout [this file](JavaScript_Implementation/localPerformanceBaseTest.js).
