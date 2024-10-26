@@ -1,4 +1,4 @@
-# K6 Performance Test JavaScript Implementation [<kbd>Previous Page</kbd>](../README.md)<br>[<kbd>Next Page</kbd>](../local-server/README.md) 
+# K6 Performance Test JavaScript Implementation <br>[<kbd>Previous Page</kbd>](../README.md)[<kbd>Next Page</kbd>](../local-server/README.md) 
 For Implementing Performance Test into any application, we will need to use Grafana K6. It is an open source load testing tool designed for efficient performance testing in any applications. Test scripts can be written in Kotlin or JavaScript, but for the following example of implementation the script will be writen in Javascript. 
 
 To better understand the capabilities of Grafana K6 feel free to check out the Learn More section of this documentation. 
@@ -64,7 +64,7 @@ To better understand the capabilities of Grafana K6 feel free to check out the L
        const res = http.post(url, payload, params);
        }
    ```
-    The above JavaScript is a sample of a basic K6 script structure, for a more advance implementation checkout [this file](JavaScript_Implementation/localPerformanceBaseTest.js).
+   The above JavaScript is a sample of a basic K6 script structure, for a more advance implementation checkout [this file](JavaScript_Implementation/localPerformanceBaseTest.js).
 
 6. The `Implementation_JSON` directory is for hosting any necessary JSON context file setup for the K6 JavaScript.
 
