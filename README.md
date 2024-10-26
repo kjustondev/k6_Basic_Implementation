@@ -3,7 +3,20 @@ This is a personal project for guiding any future developers on desiring to limi
 
 ## What is Performance Testing?
 
-- Is a type of software testing that is carried out to determine system performance in terms of sensitivity, reactivity, and stability under a particular workload. 
+- Is a type of software testing that is carried out to determine system performance in terms of **Sensitivity**, **Reactivity**, and **Stability** under a particular workload.
+  
+   <table border="0">
+    <tr>
+       <td><b style="font-size:30px">Sensitivity</b></td>
+       <td><b style="font-size:30px">Reactivity</b></td>
+       <td><b style="font-size:30px">Stability</b></td>
+    </tr>
+    <tr>
+       <td>The Sensitivity of the system is defined in the case how much the varying types responses made overtime.</td>
+       <td>The Reactivity of the system is defined by the frequency of successful calls are made overtime.</td>
+       <td>The Stability of the system is defined in the system ability to operating in operational conditions overtime.</td>
+    </tr>
+   </table>
 - Ultimately the purpose is to increase system reliability by immitate conditions to uncover potential system issues.
 
 ## What is Load Testing?
