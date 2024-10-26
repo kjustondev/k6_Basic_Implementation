@@ -34,11 +34,11 @@ To better understand the capabilities of Grafana K6 feel free to check out the L
   > This will be the directory for hosting K6 scripts:
 
    ```javascript
-   // import necessary module
+       // import necessary module
        import http from 'k6/http'; // Import the http module
        import { SharedArray } from 'k6/data';
 
-   // This method configures the amount of virtual users calling the services in set durations
+       // This method configures the amount of virtual users calling the services in set durations
        export const options = {
            stages: [
                { duration: '1m', target: 100 },
@@ -46,21 +46,24 @@ To better understand the capabilities of Grafana K6 feel free to check out the L
            ],
        };
 
+       // This is to setup the endpoint where the K6 run scripts hits
        export default function () {
-   // define URL and payload
-       const url = '<<YOUR ENDPOINT URL FOR TESTING>>';
+       const url = '<<YOUR ENDPOINT URL FOR TESTING>>'
+;
+       // JSON payload for the endpoint that is authenticating
        const payload = JSON.stringify({
            username: 'test_case',
            password: '1234',
        });
 
+       // Parameters file content type declaration
        const params = {
            headers: {
            'Content-Type': 'application/json',
            },
        };
 
-   // send a post request and save response as a variable
+       // When K6 run command executes it will make a http post request to the given endpoint url
        const res = http.post(url, payload, params);
        }
    ```
