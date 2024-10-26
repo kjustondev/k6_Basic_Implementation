@@ -46,10 +46,11 @@ To better understand the capabilities of Grafana K6 feel free to check out the L
            ],
        };
 
-       // This is to setup the endpoint where the K6 run scripts hits
+       // Main Test Method
        export default function () {
-         const url = '<<YOUR ENDPOINT URL FOR TESTING>>'
-  ;
+         // This is to setup the endpoint where the K6 run scripts hits
+         const url = '<<YOUR ENDPOINT URL FOR TESTING>>';
+
          // JSON payload for the endpoint that is authenticating
          const payload = JSON.stringify({
              username: 'test_case',
